@@ -113,6 +113,9 @@
     <None Include="Software\Ciberne\Patrulha\navemae.p" />
     <None Include="Software\Ciberne\Patrulha\perseguidor.p" />
     <None Include="Software\Ciberne\Patrulha\sosvega3.p" />
+    <None Include="Software\ebdt.p">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Software\Engesoft\Challanger.p">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
