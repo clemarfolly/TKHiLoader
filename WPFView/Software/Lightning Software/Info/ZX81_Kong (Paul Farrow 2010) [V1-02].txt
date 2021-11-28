@@ -1,0 +1,101 @@
+GAME OPERATION
+
+The game is structured so that each level is executed in seven blocks of program functionality. These blocks are cycled through, with one block executed per TV field. Some of the functionality blocks are common to all levels, with others specific to particular levels only. The functionality blocks for each level are shown below.
+
+Level 1:
+
+    Read the keyboard and move the player.
+    Animate hammer (if active) and barrel 1.
+    Animate barrels 2 and 3.
+    Animate barrels 4 and 5.
+    Animate hammer (if active), update score display, decrement bonus timer, animate fiancé screaming.
+    Animate Kong.
+    Animate fireballs 1 and 2.
+
+Level 2:
+
+    Read the keyboard and move the player.
+    Animate hammer (if active).
+    Animate fireballs 1 and 2.
+    Animate fireballs 3 and 4.
+    Animate hammer (if active), update score display, decrement bonus timer, animate fiancé screaming.
+    Animate Kong.
+    Animate cement pies.
+
+Level 3:
+
+    Read the keyboard and move the player.
+    Do nothing.
+    Animate elevator 1 and bouncing spring.
+    Animate elevator 2 and bouncing spring.
+    Update score display, decrement bonus timer, animate fiancé screaming.
+    Animate Kong.
+    Animate fireballs 1 and 2.
+
+Level 4:
+
+    Read the keyboard and move the player.
+    Animate hammer (if active).
+    Animate fireballs 1 and 2.
+    Animate fireballs 3 and 4.
+    Animate hammer (if active), update score display, decrement bonus timer, animate fiancé screaming.
+    Animate Kong.
+    Animate fireball 5.
+
+A program cycle consists of executing all of the blocks of program functionality for a level. A couple of flags may be set by a block of functionality and these flags will be tested at the start of each program cycle. Teh flags are used to indicate whether the player has lost a life, or whether the current level has been completed. This approach allows a program cycle to complete within a fixed length of time and for special circumstances to be handled at a single point within the program.
+
+Read keyboard and move player - This routine determines whether any of the selected control keys have been pressed and moves the player in the new direction as appropriate. A state machine is implemented to track the status of the player and the following states are possible:
+
+    Normal - The player is in the normal idle or running state.
+    Falling - The player is falling and so will not respond to any further controls.
+    Auto-climb - The player is moving up or down a ladder and is being automatically moved past the girder.
+    Jumping - The player is jumping and can be in one of the following sub-states:
+     
+        Moving Up - The player is leaping up (and across if a horizontal control was active).
+        Hovering - The player stops moving up and hangs in the air (but will continue to move across if a horizontal control is active).
+        Moving Down - The player begins to fall drop (and across if a horizontal control was active).
+        Landing - The player drops for a second position and is now expected to land, but if not then the player will move into the Falling state.
+    On Ladder - The player is on a ladder and so has limited movement options available.
+
+After each move of the player, tests are performed to check whether a collision has occurred with another object or whether the player has changed to one of the other states. If a collision is detected then a flag is set to indicate this and it will be detected within the main program loop.
+
+Animate barrels - This routine controls the state of one or more barrels, handling the direction it is rolling in and whether it is dropping down a ladder. It also handles the movement of the first barrel that Kong drops and which will release the fireballs when it hits the oil drum. At each move, a test is made to see if the barrel is above a ladder and a random decision taken to control whether the barrel should drop down it. Checks are also performed to see if the player has been hit or whether a collision with a hammer has occurred. If a hammer was hit then the barrel is made inactive and removed from the screen. If a barrel encounters another barrel or a fireball then it will not be moved until the path ahead is clear. As each new girder is reached, the barrel changes its horizontal direction and if it reaches a level below the player then it will simply drop off the end of the current girder. This is done to allow Kong to release a new barrel since the number of concurrent active barrels is limited to only 5. It also ensures that the majority of barrels are ahead of the player, thereby making the game more difficult.
+
+Animate fireballs - This routine controls the state of one or move fireballs, handling the direction it is moving in and whether to move up or down a ladder. On level 1 the fireballs are not released until the first barrel has hit the oil drum, and then random timers are used to determine when each fireball is activated. On the other levels, these timers are initialised directly at the start of the level and so the release of the fireballs is not dependent on any other activity. Fireballs can move up or down ladders and so tests are performed to see if the fireball is above a ladder or at the foot of a ladder. If it is then a random decision is taken whether to use the ladder. Tests are made to see whether the fireball has hit the player or if a collision with a hammer has occurred. If a hammer was hit then the fireball is removed from the screen, set inactive and it's release timer reset with a new random value. A fireball can move past another fireball or a barrel, and this is achieved by temporarily making the fireball invisible thereby allowing other objects to move past it.
+
+Animate cement pies - This routine controls the state of the cement pies that move along the three conveyor belts in level 2. Only one cement pie is ever active at a time on each conveyor belt, and is activated using a release timer set with a random value. Since the cement pies move in a fixed direction, a more limited set of checks is required for them than is needed for barrels or fireballs. A test is made to see whether the player has been hit or whether a collision with a hammer has occurred. If a hammer was hit then the cement pie is removed from the screen, set inactive and its release timer reset with a new random value. This set of actions will also occur if the cement pie reaches the end of the conveyor belt. A cement pie cannot move past a fireball but must instead wait for the fireball to detect the collision and set itself temporarily invisible; the cement pie can then move past it on the next cycle.
+
+Animate Kong - There are three different handler routines for animating Kong - one for level 1, one for level 2 and one used for both levels 3 and 4. Each handler routine implements a state machine to control the animation of Kong. A delay timer is used to control the speed at which transitions between states occurs, and will be set according to the actual transition in progress.
+
+The level 1 handler animates Kong selecting and releasing barrels, and uses the following states:
+
+    Idle - Kong is idle and ready to release a new barrel. If not all barrels are active then Kong is shown bending to pick a new one up and a move to the Pick state occurs. If all barrels are currently active then Kong is shown with fist(s) raised (selected at random) and a move to the Fists Raised state occurs.
+    Fists Raised - Kong has his fist(s) raised and now lowers them. A move back to the Idle state occurs.
+    Pick - Kong is picking up a barrel and is now displayed upright holding the barrel. A move to the Hold state occurs.
+    Hold - Kong is holding the barrel and is now displayed releasing the barrel. For the first barrel he simply drops it. For all subsequent barrels he is shown bending to the right to roll the barrel. A move to the Roll state occurs in either case.
+    Roll - Kong is dropping or rolling the barrel and is now displayed back upright. A move to the Configure state occurs. Ideally the Roll and Configure states would have been implemented as a single state but there is simply not enough time to perform all tasks within a single block of program functionality. Therefore they are divided into two states and hence split across two program loop cycles.
+    Configure - Kong has dropped or rolled the barrel so it is now marked as active and its initial direction set. The delay timer is set with a random value before a switch to the Idle state is made (which begins the process of releasing the next barrel). 
+
+The level 2 handler animates Kong stepping back and forth across the top girder and then waiting as the ladders extend and retract below him. It uses the following states:
+
+    Move Right - Kong is stepping across the top girder to the right. Once he reaches the far right, a transition to the Move Left state occurs.
+    Move Left - Kong is stepping across the top girder to the left. Once he reaches the far left, a transition to the Extend Ladders state occurs.
+    Extend Ladders - Both top ladders extend one segment at a time. Once the ladders have fully extended, a move to the Wait state occurs.
+    Wait - Kong is waiting for the ladders to begin retracting and he has both of his fists down. If it is time to retract the ladders then a move to the Retract Ladders state occurs. Otherwise Kong raises one, both or no fists (selected at random) and a move to the Fists Raised state occurs.
+    Fists Raised - Kong has his fist(s) raised and now lowers them. A transition back to the Wait state occurs.
+    Retract Ladders - Both top ladders retract one segment at a time. Once the ladders have fully retracted, a transition to the Move Right state occurs (thereby repeating the cycle). 
+
+The level 3/4 handler animates Kong standing still but shaking his fists, and uses the following states:
+
+    Idle - Kong is idle with both fists down. He now raises one, both or no fists (selected at random) and a move to the Fists Raised state occurs.
+    Fists Raised - Kong has his fist(s) raised and now lowers them. A move back to the Idle state occurs. 
+
+Animate elevators and bouncing spring - This routine controls the state of both elevators and the bouncing spring on level 3. The elevators are moved at half the cycle rate, i.e. twice as slow as the player; the spring moves at double the cycle rate, i.e. twice as fast as the player. The elevators must check whether the player is on one of their platforms and hence whether to shift the player up or down at each move. The spring follows a pre-defined path and will initially be released after a random delay. Thereafter a new spring is released as soon as the previous has dropped off the screen.
+
+Animate hammer - This routine controls the state of the hammer. If the hammer is inactive then no action is performed. If it is active then its position is toggled from above the player to in front of the player (defined by the last horizontal direction the player moved in). The hammer is moved at twice the cycle rate, i.e. twice as fast as the player, and this ensures that the hammer will hit any objects dropping down on the player from above or moving toward them from ahead. If a barrel, fireball or cement pie is encountered then the score for the hit is recorded and this will be added to the displayed score during the miscellaneous activities functionality block (described below). Once grabbed, a hammer becomes active when the player lands back on the girder and will remain active for a duration of approximately 8 seconds.
+
+Miscellaneous activities - This routine handles a variety of tasks. It performs a second update of the hammer (if active) to achieve the double speed movement. It also checks whether an update of the displayed score is required, and is responsible for decrementing the bonus timer. It also controls the state machine which determines when the fiancé screams.
+
+Start of program cycle tasks - At the start of each program cycle the various flags and counters that the blocks of program functionality may have set are checked. A test is made to see whether the level has been completed and hence whether to progress to the next level or round. A check is performed to see whether the player has lost a life or whether they have won the game by scoring more than 900,000 by the end of a round.
+
+Animation sequences - The game also includes a start of game animation (showing Kong climbing the girders of level 1), end of level animations (showing Kong climbing to the next level), and an end of round animation (showing Kong falling down). These are handled by a separate animation display loop. 

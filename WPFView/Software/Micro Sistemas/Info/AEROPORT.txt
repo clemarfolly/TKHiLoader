@@ -1,0 +1,25 @@
+------------------------------------------------------------------------
+
+                      A E R O P O R T O   83
+
+------------------------------------------------------------------------
+PUBLICADO NA REVISTA MICRO SISTEMAS EDIÇÃO NR.22 (JULHO DE 1983)
+------------------------------------------------------------------------
+AUTOR: RENATO DEGIOVANI
+------------------------------------------------------------------------
+CONVERTIDO POR KELLY ABRANTES MURTA - BRASIL - JULHO 2000
+------------------------------------------------------------------------
+
+INSTRUÇÕES
+==========
+
+Neste jogo, você é o co-piloto de um avião bombardeiro que irá pousar
+num aeroporto inimigo. A pista encontra-se obstruída e o co-piloto
+deverá bombardeá-la até que não reste nenhum obstáculo; caso contrário
+o avião explodirá ao pousar. Para lançar as bombas basta digitar 
+qualquer tecla.
+
+Curiosidade: Este foi o primeiro jogo em linguagem de máquina publicado
+             por uma revista brasileira, fazendo com que a edição 
+             nr. 22 da MS se esgotasse rapidamente nas bancas.
+

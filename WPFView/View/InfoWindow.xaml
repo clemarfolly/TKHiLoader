@@ -1,0 +1,15 @@
+﻿<Window x:Class="TKHiLoader.View.InfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TKHiLoader.View"
+        mc:Ignorable="d"
+        Title="{Binding WindowTitle}" Height="480" Width="720" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" Closed="Window_Closed">
+    <DockPanel LastChildFill="True">
+        <StackPanel DockPanel.Dock="Bottom" Loaded="StackPanel_Loaded">
+            <Button Width="100" Height="30" Margin="10" Content="{Binding CloseButtonText}" Command="{Binding CloseCommand}" />
+        </StackPanel>
+        <WebBrowser x:Name="wbView" />
+    </DockPanel>
+</Window>

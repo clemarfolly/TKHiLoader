@@ -1,0 +1,67 @@
+-------------------------------------------------------------------------
+
+                            B O M B A
+
+-------------------------------------------------------------------------
+PUBLICADO NA REVISTA MICRO SISTEMAS EDIÇÃO NR.56 (MAIO DE 1986)
+-------------------------------------------------------------------------
+AUTOR: HENIO DE ARAÚJO BEZERRA/JODRIAN SOARES AMORIM
+-------------------------------------------------------------------------
+CONVERTIDO POR KELLY ABRANTES MURTA - BRASIL - OUTUBRO 2000
+-------------------------------------------------------------------------
+
+INSTRUÇÕES
+==========
+
+Neste jogo, um grupo de terroristas espalhou cinco bombas no navio inglês
+Britânia, e você, perito em desarmar artefatos explosivos, foi o 
+escolhido para salvar a Real embarcação do naufrágio.
+
+As bombas estão numeradas de 1 a 5, sendo necessário desarmá-las sem 
+afundar o navio. Cada bomba possui dez fios, distribuídos da seguinte
+maneira:
+
+  2 fios-armadilhas - caso qualquer um deles seja cortado, a bomba 
+    explode;
+  3 fios-ativos - para desarmar a bomba, é preciso cortar todos os três;
+  1 fio-conjugador - sua função será explicada mais adiante;
+  4 fios-neutros - não tem função. É indiferente cortá-los ou não.
+
+Inicialmente, você informa qual a bomba a ser trabalhada; em seguida 
+aparece um painel com os dez fios da bomba, então você deve ir cortando
+aleatoriamente os fios. Ocorrendo uma das situações a seguir, o navio
+explodirá:
+
+   - se a bomba nr. 3 explodir;
+   - se a bomba nr. 2 e qualquer outra explodirem;
+   - se três bombas quaisquer explodirem.
+
+No início do jogo, as bombas 3, 4 e 5 são conjugadas, isto é, seus fios
+são iguais. Por exemplo: se você trabalhar na bomba nr.5 e, ao cortar o
+fio nr.2, ela explodir, então, o mesmo acontecerá com as bombas 3 e 4
+quando este fio for cortado. São dois grupos de bombas: 1 e 2 (primeiro
+grupo) e 3, 4 e 5 (segundo grupo).
+
+Esta situação de bombas conjugadas permanece até que você corte o fio que
+as une, o fio conjugador. Assim, todas as outras do mesmo grupo terão 
+seus fios renumerados. Por exemplo, no caso anterior, se o fio nr. 2 da 
+bomba 5 fosse o conjugador, as bombas 3 e 4 não seriam mais iguais à 5, 
+porém, permaneceriam iguais entre si. Esta operação não afetaria o 
+primeiro grupo de bombas. Para que o jogador saiba que o fio conjugador 
+foi cortado, aparecerá um aviso na tela. É o único caso em que se é 
+avisado sobre a natureza do fio cortado.
+
+Durante o jogo, pode-se pedir um relatório a qualquer momento teclando-se
+"R". Se quiser desistir, tecle "D". Um informante em terra firme conhece 
+o número de um dos fios-armadilhas da bomba em que você está trabalhando;
+tecle "A" para entrar em contato com ele; você deve tentar suborná-lo, e
+ele perguntará pela quantia oferecida, podendo aceitar ou recusar. Caso
+ele aceite, você saberá um dos fios que explodem aquela bomba. Ao ser
+subornado, o informante perde o contato com você para não ser descoberto;
+desta forma, só se pode suborná-lo uma vez durante todo o jogo. Lembre-se
+que o suborno só é válido se o informante aceitar a quantia. Caso ele
+recuse, você pode fazer outras tentativas. Para facilitar, a pontuação é
+feita em dinheiro.
+
+Use as teclas "6" e "7" para levar o alicate até o fio desejado, e a 
+tecla "5" para cortar o fio.

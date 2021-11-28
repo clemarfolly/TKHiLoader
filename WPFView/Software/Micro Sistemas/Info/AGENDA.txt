@@ -1,0 +1,39 @@
+-------------------------------------------------------------------------
+
+                     A R Q U I V O - A G E N D A
+
+-------------------------------------------------------------------------
+PUBLICADO NA REVISTA MICRO SISTEMAS EDIÇÃO NR.43 (ABRIL DE 1985)
+-------------------------------------------------------------------------
+AUTOR: MÁRCIO FONTENELLE VIANNA
+-------------------------------------------------------------------------
+CONVERTIDO POR KELLY ABRANTES MURTA - BRASIL - SETEMBRO 2000
+-------------------------------------------------------------------------
+
+INSTRUÇÕES
+==========
+
+Este programa tem como finalidade o manuseio prático de um arquivo-agenda
+para nome, endereço, CEP, bairro, cidade, Estado e telefone de pessoas
+físicas e jurídicas. Em micros com memória de 16Kb é possível arquivar
+até 105 registros e com 48Kb, cerca de 400.
+
+As rotinas principais são:
+
+ENTRADA DE DADOS - Permite a introdução dos vários registros.
+ALTERAÇÃO DE DADOS - Possibilita a alteração ou correção de qualquer um
+dos registros.
+EXCLUSÃO DE DADOS - Elimina quaisquer registros, renumerando todos os 
+outros de ordem superior ao cancelado.
+SELEÇÃO GERAL - Permite acessar cada um dos registros do programa, 
+digitando a primeira letra do nome da pessoa pretendida. 
+SELEÇÃO DE NOMES - Seleciona no vídeo o nome e seus dados complementares,
+bastando, para isso, digitar o nome que se quer consultar, atentando para
+o delimitador de campo.
+SELEÇÃO DE TELEFONE - Mesma função da rotina anterior, porém digitando o
+número do telefone da pessoa a quem se quer consultar.
+INFORMAÇÕES - Apresenta na tela : capacidade máxima de registros; número
+de registros ocupados; número de registros livres; data da última 
+gravação.
+GRAVAÇÃO ARQUIVO - Para gravar o arquivo.
+IMPRESSÃO ARQUIVO - Esta rotina não foi implementada no programa.
