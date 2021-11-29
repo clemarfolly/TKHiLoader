@@ -565,14 +565,14 @@ namespace TKHiLoader.ViewModel
                 new MenuItem { Header = "Configurações",
                                     MenuItems = new ObservableCollection<MenuItem>
                         {
-                            new MenuItem { Header = "Restaurar Opções Padrão" },
-                            new MenuItem { Header = "Abrir Configurações" },
+                            new MenuItem { Header = "Restaurar Opções Padrão", Command = new RelayCommand((o) => false, null) },
+                            new MenuItem { Header = "Abrir Configurações", Command = new RelayCommand((o) => false, null) },
                         }
                 },
                 new MenuItem { Header = "Ajuda",
                 MenuItems = new ObservableCollection<MenuItem>
                         {
-                            new MenuItem { Header = "Abrir Ajuda" },
+                            new MenuItem { Header = "Abrir Ajuda", Command = new RelayCommand((o) => false, null) },
                             new MenuItem { Header = "Guia Rápido", Command = new RelayCommand((o) => PlayerStopped, GuickGuide) },
                             new MenuItem { Header = "Sobre TK HiLoader", Command = new RelayCommand((o) => PlayerStopped, About) }
                         }

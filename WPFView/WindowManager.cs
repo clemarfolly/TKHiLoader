@@ -75,7 +75,7 @@ namespace TKHiLoader
 
         public void ShowAbout(AboutViewModel viewModel)
         {
-            MessageBox.Show("Feito por Clemar Folly.");
+            MessageBox.Show("<b>Feito por Clemar Folly.</b>\n\nhttps://github.com/clemarfolly/TKHiLoader\n\n\nAgradecimento ao Kelly Murta pelo loader alternativo e pela biblioteca de software disponivel em seu site.");
         }
 
         public void ShowInfo(InfoViewModel viewModel)

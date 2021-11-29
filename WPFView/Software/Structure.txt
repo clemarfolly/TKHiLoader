@@ -1,0 +1,4 @@
+﻿.\Software\DeveloperName\Software.p
+.\Software\DeveloperName\Image\Software.[bmp,png,gif,jpg]
+.\Software\DeveloperName\Info\Software.[txt,htm,html]
+.\Software\DeveloperName\Summary\Software.[txt]

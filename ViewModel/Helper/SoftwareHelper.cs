@@ -21,14 +21,18 @@ namespace TKHiLoader.Helper
             IList<Software> softwareList = new List<Software>();
 
             string basePath = ConfigHelper.GetSoftwarePath();
-            var files = Directory.EnumerateFiles(basePath, "*.*", SearchOption.AllDirectories);
 
-            foreach (var file in files)
+            if (Directory.Exists(basePath))
             {
-                if (!FormatHelper.Formats.Any(f => f.FileExtension == Path.GetExtension(file.ToLower())))
-                    continue;
+                var files = Directory.EnumerateFiles(basePath, "*.*", SearchOption.AllDirectories);
 
-                softwareList.Add(GetNewSoftware(file));
+                foreach (var file in files)
+                {
+                    if (!FormatHelper.Formats.Any(f => f.FileExtension == Path.GetExtension(file.ToLower())))
+                        continue;
+
+                    softwareList.Add(GetNewSoftware(file));
+                }
             }
 
             return softwareList;
@@ -47,7 +51,7 @@ namespace TKHiLoader.Helper
             };
 
             //  .\Software\DeveloperName\Software.p
-            //  .\Software\DeveloperName\Image\Software.[bmp,png,gif.jpg]
+            //  .\Software\DeveloperName\Image\Software.[bmp,png,gif,jpg]
             //  .\Software\DeveloperName\Info\Software.[txt,htm,html]
             //  .\Software\DeveloperName\Summary\Software.[txt]
 

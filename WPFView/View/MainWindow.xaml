@@ -56,8 +56,8 @@
                 <GroupBox Header="{Binding OptionsText}" Width="380" Height="115" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" IsEnabled="{Binding PlayerStopped}">
                     <StackPanel>
                         <CheckBox Content="{Binding UseCustomHiLoadText}" IsChecked="{Binding UseCustomHiLoad}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" />
-                        <CheckBox Content="{Binding InvertWavPolarityText}" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" />
-                        <CheckBox Content="{Binding UseStandartFormatText}" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" />
+                        <CheckBox Content="{Binding InvertWavPolarityText}" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" IsEnabled="False" />
+                        <CheckBox Content="{Binding UseStandartFormatText}" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" IsEnabled="False" />
                         <StackPanel Orientation="Horizontal" Margin="10,5,0,0" >
                             <Label Content="{Binding TimeBeforeStartText}" />
                             <TextBox Width="70" Height="21" Text="{Binding TimeBeforeStart}" />
