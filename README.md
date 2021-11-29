@@ -8,3 +8,6 @@ O programa foi desenvolvido com Visual Studio, usando WPF com VMVM e .NET Framew
 Exemplo de funcionamento:
 
 https://www.youtube.com/watch?v=my8I3zz2ac8
+
+
+O loader alternativo usa o HILOAD PARA TK82C/TK83/CP200/ZX81 do KELLY ABRANTES MURTA. Obrigado.
