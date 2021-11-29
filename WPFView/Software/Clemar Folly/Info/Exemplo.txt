@@ -1,0 +1,17 @@
+// linha de comando para compilacao com o z88dk:
+// zcc +zx81 -create-app -o exemplo exemplo.c
+
+#include <stdio.h>
+
+int main(void) {
+
+    printf("     EXEMPLO DO TKHILOADER\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n\n");
+    printf("por clemar folly\n\n");
+    printf("https://git.io/JM42R\n\n\n");
+    printf("29/11/2021\n");
+	
+    for(;;);
+
+    return 0;
+}
