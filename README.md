@@ -5,3 +5,6 @@ Para o TK85 carrege os programas usando RAND USR 8630. Para os outros clones de 
 
 O programa foi desenvolvido com Visual Studio, usando WPF com VMVM e .NET Framework 4.0, para ser compatível com Windows XP em diante.
 
+Exemplo de funcionamento:
+
+https://www.youtube.com/watch?v=my8I3zz2ac8
